@@ -1,6 +1,7 @@
 package com.zz.qualityCode;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Method;
 
 class Food{
     public Food() {
@@ -18,6 +19,7 @@ public class GenericsClass<T> {
 
     public GenericsClass(){
         try {
+            Class.forName("java.lang.Integer");
             t = (T) Class.forName("com.zz.qualityCode.Food").newInstance();
             tArray = (T[]) Array.newInstance(Class.forName("com.zz.qualityCode.Food") , 10);
         } catch (Exception e) {
@@ -29,5 +31,7 @@ public class GenericsClass<T> {
         Integer e = 0;
         Food[] arr = (Food[]) new GenericsClass().gettArray();
         System.out.println(arr.length);
+
+
     }
 }
